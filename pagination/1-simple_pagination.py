@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 """
-
+Modulo that contains one class and two functions
+    Server: Import the database
+        dataset: Return a list with the datas
+    get_page: Return the data with the good index
 """
 
 
@@ -31,6 +34,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+            Take page and page_list as parameter
+            return a list with the information at the good index
+        """
         assert isinstance(page, int)
         assert isinstance(page_size, int)
         assert page > 0
