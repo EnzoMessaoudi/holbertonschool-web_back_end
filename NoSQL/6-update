@@ -1,6 +1,6 @@
 // Script that update the school collection
 
-db.school.updateMany(
+db.school.update(
     {
         name: "Holberton school"
     },
