@@ -1,0 +1,3 @@
+// Command used to list all the existing databases.
+
+show dbs
