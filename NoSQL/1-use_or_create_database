@@ -1,0 +1,3 @@
+// Command to Use a database or use it, if not exists
+
+use my_db
