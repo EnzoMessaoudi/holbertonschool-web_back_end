@@ -18,19 +18,19 @@ if __name__ == "__main__":
     print("Methods:")
 
     meth_get = collection.count_documents({"method": "GET"})
-    print("     method GET: {}".format(meth_get))
+    print("\tmethod GET: {}".format(meth_get))
 
     meth_post = collection.count_documents({"method": "POST"})
-    print("     method POST: {}".format(meth_post))
+    print("\tmethod POST: {}".format(meth_post))
 
     meth_put = collection.count_documents({"method": "PUT"})
-    print("     method PUT: {}".format(meth_put))
+    print("\tmethod PUT: {}".format(meth_put))
 
     meth_patch = collection.count_documents({"method": "PATCH"})
-    print("     method PATCH: {}".format(meth_patch))
+    print("\tmethod PATCH: {}".format(meth_patch))
 
     meth_delete = collection.count_documents({"method": "DELETE"})
-    print("     method DELETE: {}".format(meth_delete))
+    print("\tmethod DELETE: {}".format(meth_delete))
 
     num_doc = collection.count_documents({"method": "GET", "path": "/status"})
     print("{} status check".format(num_doc))
