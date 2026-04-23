@@ -5,30 +5,32 @@
 """
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost:27017/")
 
-db = client["logs"]
-collection = db["nginx"]
+if __name__ == "__main__":
+    client = MongoClient("mongodb://localhost:27017/")
 
-number = collection.count_documents({})
-print("{} logs".format(number))
+    db = client["logs"]
+    collection = db["nginx"]
 
-print("Methods:")
+    number = collection.count_documents({})
+    print("{} logs".format(number))
 
-meth_get = collection.count_documents({"method": "GET"})
-print(" method GET: {}".format(meth_get))
+    print("Methods:")
 
-meth_post = collection.count_documents({"method": "POST"})
-print(" method POST: {}".format(meth_post))
+    meth_get = collection.count_documents({"method": "GET"})
+    print(" method GET: {}".format(meth_get))
 
-meth_put = collection.count_documents({"method": "PUT"})
-print(" method PUT: {}".format(meth_put))
+    meth_post = collection.count_documents({"method": "POST"})
+    print(" method POST: {}".format(meth_post))
 
-meth_patch = collection.count_documents({"method": "PATCH"})
-print(" method PATCH: {}".format(meth_patch))
+    meth_put = collection.count_documents({"method": "PUT"})
+    print(" method PUT: {}".format(meth_put))
 
-meth_delete = collection.count_documents({"method": "DELETE"})
-print(" method DELETE: {}".format(meth_delete))
+    meth_patch = collection.count_documents({"method": "PATCH"})
+    print(" method PATCH: {}".format(meth_patch))
 
-num_doc = collection.count_documents({"method": "GET", "path": "/status"})
-print("{} status check".format(num_doc))
+    meth_delete = collection.count_documents({"method": "DELETE"})
+    print(" method DELETE: {}".format(meth_delete))
+
+    num_doc = collection.count_documents({"method": "GET", "path": "/status"})
+    print("{} status check".format(num_doc))
