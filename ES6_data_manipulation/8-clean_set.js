@@ -1,5 +1,5 @@
 export default function cleanSet(set, stratString) {
-    if (!stratString || !typeof(stratString, String)) {
+    if (!stratString || typeof stratString !== 'string') {
         return '';
     }
     let myString = "";
