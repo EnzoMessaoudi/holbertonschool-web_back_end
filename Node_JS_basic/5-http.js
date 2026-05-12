@@ -10,7 +10,8 @@ const app = createServer((req, res) => {
   }
   if (req.url === '/students' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    countStudents('database.csv')
+    const database = process.argv[2];
+    countStudents(database)
       .then((result) => {
         res.write('This is the list of our students\n');
         res.write(result);
