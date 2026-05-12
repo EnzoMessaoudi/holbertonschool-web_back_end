@@ -21,12 +21,17 @@ function countStudents(path) {
         }
         fields[field].push(firstname);
       });
+      const lines = [];
+
+      lines.push(`Number of students: ${filterFile.length - 1}`);
 
       Object.keys(fields).forEach((field) => {
-        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
+          console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
+          lines.push(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
       });
-      return resolve();
-    });
+
+      return resolve(lines.join('\n'));
+          });
   });
 }
 
