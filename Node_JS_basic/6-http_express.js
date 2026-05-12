@@ -3,10 +3,10 @@ const http = require('http');
 
 const app = express();
 
-app.set('port', process.env.PORT || 1245);
+app.set('port', 1245);
 const server = http.createServer(app);
 
-server.listen(process.env.PORT || 1245);
+server.listen(1245);
 
 app.get('/', (req, res) => {
   res.end('Hello Holberton School!');
