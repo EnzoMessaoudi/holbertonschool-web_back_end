@@ -8,7 +8,7 @@ const port = 1245;
 const app = createServer((req, res) => {
   if (req.url === '/' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello Holberton School!\n');
+    res.end('Hello Holberton School!');
   }
   if (req.url === '/students' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -19,7 +19,7 @@ const app = createServer((req, res) => {
         res.end();
       })
       .catch((error) => {
-        res.end(error.message);
+        res.end(`${error.message}\n`);
       });
   }
 });
