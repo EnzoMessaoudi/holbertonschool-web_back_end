@@ -1,7 +1,7 @@
 const { createServer } = require('node:http');
 const countStudents = require('./3-read_file_async');
 
-const database = process.argv[2];
+const database = process.argv[2] || 'database.csv';
 
 const hostname = '127.0.0.1';
 const port = 1245;
@@ -15,11 +15,11 @@ const app = createServer((req, res) => {
     countStudents(database)
       .then((result) => {
         res.write('This is the list of our students\n');
-        res.write(`${result}\n`);
+        res.write(`${result}`);
         res.end();
       })
       .catch((error) => {
-        res.end(`${error.message}\n`);
+        res.end(`${error.message}`);
       });
   }
 });
