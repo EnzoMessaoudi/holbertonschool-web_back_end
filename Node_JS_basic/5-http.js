@@ -1,7 +1,7 @@
 const { createServer } = require('node:http');
 const fs = require('fs');
 
-const database = process.argv[2]
+const database = process.argv[2];
 
 const hostname = '127.0.0.1';
 const port = 1245;
@@ -14,9 +14,15 @@ const app = createServer((req, res) => {
   if (req.url === '/students' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     new Promise((resolve, reject) => {
-      if (!database) return reject(new Error('Cannot load the database'));
+      if (!database) {
+        reject(new Error('Cannot load the database'));
+        return;
+      }
       fs.readFile(database, 'utf-8', (err, data) => {
-        if (err) return reject(new Error('Cannot load the database'));
+        if (err) {
+          reject(new Error('Cannot load the database'));
+          return;
+        }
         const filterFile = data.split('\n').filter((line) => line !== '');
         const students = filterFile.slice(1);
         const fields = {};
@@ -31,7 +37,7 @@ const app = createServer((req, res) => {
         Object.keys(fields).forEach((field) => {
           lines.push(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
         });
-        return resolve(lines.join('\n'));
+        resolve(lines.join('\n'));
       });
     })
       .then((result) => {
