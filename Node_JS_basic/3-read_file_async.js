@@ -9,7 +9,6 @@ function countStudents(path) {
       const newFile = data.split('\n');
       const filterFile = newFile.filter((line) => line !== '');
 
-      console.log(`Number of students: ${filterFile.length - 1}`);
       const students = filterFile.slice(1);
 
       const fields = {};
@@ -26,7 +25,6 @@ function countStudents(path) {
       lines.push(`Number of students: ${filterFile.length - 1}`);
 
       Object.keys(fields).forEach((field) => {
-          console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
           lines.push(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
       });
 
