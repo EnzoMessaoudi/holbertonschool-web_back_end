@@ -15,7 +15,7 @@ const app = createServer((req, res) => {
     countStudents(database)
       .then((result) => {
         res.write('This is the list of our students\n');
-        res.write(result);
+        res.write(`${result}\n`);
         res.end();
       })
       .catch((error) => {
